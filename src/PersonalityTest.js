@@ -86,6 +86,46 @@ const PersonalityTest = ({ onSubmit }) => {
         { value: 'drama', label: 'Chicago' },
       ],
     },
+    {
+      question: 'If you found a mysterious old book, what would you do?',
+      options: [
+        { value: 'horror', label: 'I would read it eagerly, even if it contains dark and forbidden knowledge.' },
+        { value: 'mystery', label: 'I would hesitate but eventually delve into its secrets, risking the unknown.' },
+        { value: 'adventure', label: 'I would leave it untouched, knowing that some things are better left undiscovered' },
+      ],
+    },
+    {
+      question: 'If you could participate in a thrilling heist, what role would you take on?',
+      options: [
+        { value: 'thriller', label: 'The mastermind strategist who plans and orchestrates the entire operation.' },
+        { value: 'mystery', label: 'The nimble and agile thief who excels at acrobatics and escapes.' },
+        { value: 'drama', label: 'The charismatic con artist who manipulates others to achieve their goals.' },
+      ],
+    },
+    {
+      question: 'If you had the power to manipulate dreams, how would you use it?',
+      options: [
+        { value: 'thriller', label: 'To uncover hidden truths and delve into the depths of the subconscious.' },
+        { value: 'fantasy', label: 'To create fantastical and surreal dreamscapes limited only by your imagination.' },
+        { value: 'comedy', label: 'To prank friends and have hilarious, absurd dream scenarios together.' },
+      ],
+    },
+    {
+      question: 'If you could have a secret hideout, where would it be located?',
+      options: [
+        { value: 'adventure', label: 'A hidden cave deep within a dense forest, sheltered from prying eyes.' },
+        { value: 'fantasy', label: 'An underwater lair beneath the ocean\'s depths, accessible only to the chosen few.' },
+        { value: 'sci-fi', label: 'A high-tech skyscraper penthouse, equipped with state-of-the-art security and luxurious amenities.' },
+      ],
+    },
+    {
+      question: 'If you could have a secret pocket dimension, what would you keep inside?',
+      options: [
+        { value: 'fantasy', label: 'A whimsical and ever-expanding library with books that come to life.' },
+        { value: 'horror', label: 'A dark and mysterious labyrinth with hidden treasures and menacing creatures.' },
+        { value: 'fantasy', label: 'A serene and tranquil garden with exotic plants and talking animals.' },
+      ],
+    },
   ]
 
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0)
@@ -109,7 +149,7 @@ const PersonalityTest = ({ onSubmit }) => {
   }
 
   return (
-    <div className="bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 py-8 px-4">
+    <div className="bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 py-8 px-4 rounded-lg shadow-xl">
       {currentQuestionIndex < questions.length ? (
         <div className="max-w-lg mx-auto">
           <h3 className="text-2xl font-bold mb-6 text-white">
