@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 
 const ShowPage = ({ onStartTest }) => {
   return (
@@ -19,10 +19,10 @@ const ShowPage = ({ onStartTest }) => {
         </button>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default ShowPage;
+export default ShowPage
 
 
 
