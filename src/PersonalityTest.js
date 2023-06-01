@@ -71,7 +71,7 @@ const PersonalityTest = ({ onSubmit }) => {
       ],
     },
     {
-      question: 'Humor: Which houseplant are you?',
+      question: 'Which houseplant are you?',
       options: [
         { value: 'family', label: 'Golden Pothos' },
         { value: 'action', label: 'Monstera' },
