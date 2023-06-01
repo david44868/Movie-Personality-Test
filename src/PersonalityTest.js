@@ -132,7 +132,7 @@ const PersonalityTest = ({ onSubmit }) => {
   const [responses, setResponses] = useState(Array(questions.length).fill(''))
   const [completedTest, setCompletedTest] = useState(false)
   const [recommendations, setRecommendations] = useState([])
-
+  
   const handleResponse = (question, answer) => {
     setResponses((prevResponses) => {
       const newResponses = [...prevResponses]
@@ -140,16 +140,20 @@ const PersonalityTest = ({ onSubmit }) => {
       return newResponses
     })
 
-    if (currentQuestionIndex < questions.length - 1) {
-      setCurrentQuestionIndex(currentQuestionIndex + 1)
-    } else {
-      setCompletedTest(true)
-      onSubmit()
-    }
+
+    setTimeout(() => {
+      if (currentQuestionIndex < questions.length - 1) {
+        setCurrentQuestionIndex(currentQuestionIndex + 1);
+      } else {
+        setCompletedTest(true);
+        onSubmit();
+      }
+    }, 350); // delay
   }
 
   return (
-    <div className="bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 py-8 px-4 rounded-lg shadow-xl">
+    <div className="bg-gradient-to-r from-teal-400 via-blue-500 to-purple-600 py-8 px-4 rounded-lg shadow-xl">
+
       {currentQuestionIndex < questions.length ? (
         <div className="max-w-lg mx-auto">
           <h3 className="text-2xl font-bold mb-6 text-white">
