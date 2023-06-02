@@ -18,7 +18,7 @@ const MovieRecommendations = ({ recommendations }) => {
           <div
             key={movie.id}
             className="movie-card"
-            onClick={() => openIMDbLink(`https://www.imdb.com/title/${movie.id}/`)}
+            onClick={() => openIMDbLink(`https://www.themoviedb.org/movie/${movie.id}`)}
           >
             <h3>{movie.title}</h3>
             <h4>IMDB Rating: {movie.rating}</h4>

@@ -225,6 +225,7 @@ const fetchMovies = async (mostSelectedGenre, secondMostSelectedGenre) => {
             posterPath: `https://image.tmdb.org/t/p/w500${movie.poster_path}`,
             overview: movie.overview,
             rating: movie.vote_average,
+            id: movie.id,
           }
           
         }); // Top 5 movies

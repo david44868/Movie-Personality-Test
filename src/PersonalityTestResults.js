@@ -48,12 +48,14 @@ const PersonalityTestResults = ({ responses, onSubmit, movieRecommendations }) =
       <div className="mt-0 mb-10 text-white text-lg text-center">
         <p>Now, let's find movies for you based on your favorite genres.</p>
       </div>
-      <button
-        onClick={() => onSubmit(movieRecommendations)}
-        className="bg-white rounded-lg p-3 absolute bottom-0 right-0 hover:bg-slate-200"
-      >
-        Show movie recommendations
-      </button>
+      <div className="flex justify-center">
+        <button
+          onClick={() => onSubmit(movieRecommendations)}
+          className="bg-white rounded-lg p-3 hover:bg-slate-200"
+        >
+          Show movie recommendations
+        </button>
+      </div>
     </div>
   );
 };
