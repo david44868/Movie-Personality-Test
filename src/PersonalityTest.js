@@ -83,7 +83,7 @@ const PersonalityTest = ({ onSubmit }) => {
       question: 'If you had to pick a city to live in, where would it be?',
       options: [
         { value: 'action', label: 'New York City' },
-        { value: 'romcom', label: 'San Diego' },
+        { value: 'romance', label: 'San Diego' },
         { value: 'drama', label: 'Chicago' },
       ],
     },
@@ -134,6 +134,22 @@ const PersonalityTest = ({ onSubmit }) => {
   const [completedTest, setCompletedTest] = useState(false);
   const [loading, setLoading] = useState(false);
 
+  // Genre IDs
+  const genreMap = {
+    "action": 28,
+    "adventure": 12,
+    "comedy": 35,
+    "drama": 18,
+    "family": 10751,
+    "fantasy": 14,
+    "horror": 27,
+    "mystery": 9648,
+    "romance": 10749,
+    "sci-fi": 878,
+    "thriller": 53,
+  };
+  
+
   const handleResponse = (question, answer) => {
     setResponses((prevResponses) => {
       const newResponses = [...prevResponses];
@@ -151,9 +167,59 @@ const PersonalityTest = ({ onSubmit }) => {
         // setTimeout(() => {
         //   setLoading(false);
         // }, 1500);
-      }
+
+        const responseMap = new Map();
+      responses.forEach((response) => {
+        const count = responseMap.get(response) || 0;
+        responseMap.set(response, count + 1);
+      });
+
+      let mostSelectedGenre = '';
+      let secondMostSelectedGenre = '';
+      let maxCount = 0;
+      let secondMaxCount = 0;
+
+      responseMap.forEach((count, genre) => {
+        if (count > maxCount) {
+          secondMostSelectedGenre = mostSelectedGenre;
+          secondMaxCount = maxCount;
+          mostSelectedGenre = genre;
+          maxCount = count;
+        } else if (count === maxCount) {
+          secondMostSelectedGenre = genre;
+          secondMaxCount = count;
+        } else if (count > secondMaxCount) {
+          secondMostSelectedGenre = genre;
+          secondMaxCount = count;
+        }
+      });
+
+      fetchMovies(mostSelectedGenre, secondMostSelectedGenre)
+    }
     }, 350); // delay
   };
+
+
+// Function to fetch movies
+const fetchMovies = async (mostSelectedGenre, secondMostSelectedGenre) => {
+  const apiKey = '6825b254d0d78d91c8b18db5a8c9c31a'; // Replace with your TMDb API key
+  try {
+    const response = await fetch(
+      `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&with_genres=${genreMap[mostSelectedGenre]},${genreMap[secondMostSelectedGenre]}`
+    );
+    const data = await response.json();
+
+    // Process the movie results
+    if (data.results && data.results.length > 0) {
+      const movies = data.results.slice(0, 5).map((movie) => movie.title); // Top 5 movies
+      console.log('Movies:', movies);
+    } else {
+      console.log('No movies found.');
+    }
+  } catch (error) {
+    console.error('Error fetching movies:', error);
+  }
+};
 
   return (
     <div className="bg-gradient-to-r from-teal-400 via-blue-500 to-purple-600 py-8 px-4 rounded-lg shadow-xl m-10">
