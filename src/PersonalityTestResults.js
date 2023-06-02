@@ -29,7 +29,7 @@ const PersonalityTestResults = ({ responses, onSubmit }) => {
         {" "}
         A {responses[0]} {responses[2]} that finds solace in {responses[1]}.
       </p>
-      <div className="container backdrop-blur rounded-lg max-w-[85%] p-10 mx-auto my-14 border-solid border-2 border-white">
+      <div className="backdrop-blur rounded-lg max-w-[85%] p-10 mx-auto my-14 border-solid border-2 border-white">
         <p className="text-lg text-white mb-5">
           Each of your answers corresponded with a movie genre:
           <br></br>

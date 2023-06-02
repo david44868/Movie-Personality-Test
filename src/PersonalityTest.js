@@ -154,7 +154,7 @@ const PersonalityTest = ({ onSubmit }) => {
     setResponses((prevResponses) => {
       const newResponses = [...prevResponses];
       newResponses[question] = answer;
-      console.log("newResponses", newResponses)
+      // console.log("newResponses", newResponses)
       return newResponses;
     });
 
@@ -254,7 +254,7 @@ const fetchMovies = async (mostSelectedGenre, secondMostSelectedGenre) => {
       //   </p>
       // ) : 
       (
-        <PersonalityTestResults responses={responses} onSubmit={onSubmit}/>
+        <PersonalityTestResults responses={responses} onSubmit={onSubmit} />
       )}
       {/* Render movie recommendations */}
     </div>
