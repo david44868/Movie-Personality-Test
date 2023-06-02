@@ -9,9 +9,11 @@ import './index.css'
 function App() {
   const [completedTest, setCompletedTest] = useState(false)
   const [testStarted, setTestStarted] = useState(false)
+  const [movieRecommendations, setMovieRecommendations] = useState(null);
 
-  const handleTestCompletion = () => {
+  const handleTestCompletion = (recommendations) => {
     setCompletedTest(true)
+    setMovieRecommendations(recommendations)
   }
 
   const handleStartTest = () => {
@@ -24,7 +26,7 @@ function App() {
         !completedTest ? (
           <PersonalityTest onSubmit={handleTestCompletion} />
         ) : (
-          <MovieRecommendations />
+          <MovieRecommendations recommendations={movieRecommendations}/>
         )
       ) : (
         <ShowPage onStartTest={handleStartTest} />
