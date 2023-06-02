@@ -164,7 +164,7 @@ const PersonalityTest = ({ onSubmit }) => {
     setResponses((prevResponses) => {
       const newResponses = [...prevResponses];
       newResponses[question] = answer;
-      console.log("newResponses", newResponses)
+      // console.log("newResponses", newResponses)
       return newResponses;
     });
 
@@ -218,7 +218,6 @@ const fetchMovies = async (mostSelectedGenre, secondMostSelectedGenre) => {
       `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&with_genres=${genreMap[mostSelectedGenre]},${genreMap[secondMostSelectedGenre]}`
     );
     const data = await response.json();
-
     // Process the movie results
     if (data.results && data.results.length > 0) {
       const movies = data.results.slice(0, 5).map((movie) => 
@@ -226,13 +225,15 @@ const fetchMovies = async (mostSelectedGenre, secondMostSelectedGenre) => {
           return {
             title: movie.title,
             posterPath: `https://image.tmdb.org/t/p/w500${movie.poster_path}`,
+            overview: movie.overview,
+            rating: movie.vote_average,
           }
           
         }); // Top 5 movies
-      console.log('Movies:', movies);
+      // console.log('Movies:', movies);
       setMovieRecommendations(movies);
     } else {
-      console.log('No movies found.');
+      // console.log('No movies found.');
     }
   } catch (error) {
     console.error('Error fetching movies:', error);
