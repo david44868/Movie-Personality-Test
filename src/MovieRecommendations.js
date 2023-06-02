@@ -11,8 +11,7 @@ const MovieRecommendations = ({ recommendations }) => {
       {recommendations.map((movie) => (
         <div key={movie.id}>
           <h3>{movie.title}</h3>
-          <p>{movie.overview}</p>
-          <p>Rating: {movie.vote_average}</p>
+          <img src={movie.posterPath} width="200px"/>
         </div>
       ))}
     </div>

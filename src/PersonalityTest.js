@@ -133,6 +133,7 @@ const PersonalityTest = ({ onSubmit }) => {
   const [responses, setResponses] = useState(Array(questions.length).fill(""));
   const [completedTest, setCompletedTest] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [movieRecommendations, setMovieRecommendations] = useState(null);
 
   // Genre IDs
   const genreMap = {
@@ -211,8 +212,16 @@ const fetchMovies = async (mostSelectedGenre, secondMostSelectedGenre) => {
 
     // Process the movie results
     if (data.results && data.results.length > 0) {
-      const movies = data.results.slice(0, 5).map((movie) => movie.title); // Top 5 movies
+      const movies = data.results.slice(0, 5).map((movie) => 
+        {
+          return {
+            title: movie.title,
+            posterPath: `https://image.tmdb.org/t/p/w500${movie.poster_path}`,
+          }
+          
+        }); // Top 5 movies
       console.log('Movies:', movies);
+      setMovieRecommendations(movies);
     } else {
       console.log('No movies found.');
     }
@@ -254,7 +263,7 @@ const fetchMovies = async (mostSelectedGenre, secondMostSelectedGenre) => {
       //   </p>
       // ) : 
       (
-        <PersonalityTestResults responses={responses} onSubmit={onSubmit}/>
+        <PersonalityTestResults responses={responses} onSubmit={onSubmit} movieRecommendations={movieRecommendations}/>
       )}
       {/* Render movie recommendations */}
     </div>

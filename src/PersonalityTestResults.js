@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-const PersonalityTestResults = ({ responses, onSubmit }) => {
+const PersonalityTestResults = ({ responses, onSubmit, movieRecommendations }) => {
   const [genreCount, setGenreCount] = useState({});
 
   const getGenreCount = () => {
@@ -49,7 +49,7 @@ const PersonalityTestResults = ({ responses, onSubmit }) => {
         <p>Now, let's find movies for you based on your favorite genres.</p>
       </div>
       <button
-        onClick={onSubmit}
+        onClick={() => onSubmit(movieRecommendations)}
         className="bg-white rounded-lg p-3 absolute bottom-0 right-0 hover:bg-slate-200"
       >
         Show movie recommendations
