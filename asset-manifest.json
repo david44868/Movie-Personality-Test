@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/portfolio-calculator/static/css/main.081a0563.css",
-    "main.js": "/portfolio-calculator/static/js/main.a428bd46.js",
-    "static/js/787.28cb0dcd.chunk.js": "/portfolio-calculator/static/js/787.28cb0dcd.chunk.js",
-    "index.html": "/portfolio-calculator/index.html",
-    "main.081a0563.css.map": "/portfolio-calculator/static/css/main.081a0563.css.map",
-    "main.a428bd46.js.map": "/portfolio-calculator/static/js/main.a428bd46.js.map",
-    "787.28cb0dcd.chunk.js.map": "/portfolio-calculator/static/js/787.28cb0dcd.chunk.js.map"
+    "main.css": "/Movie-Personality-Test/static/css/main.081a0563.css",
+    "main.js": "/Movie-Personality-Test/static/js/main.68203685.js",
+    "static/js/787.28cb0dcd.chunk.js": "/Movie-Personality-Test/static/js/787.28cb0dcd.chunk.js",
+    "index.html": "/Movie-Personality-Test/index.html",
+    "main.081a0563.css.map": "/Movie-Personality-Test/static/css/main.081a0563.css.map",
+    "main.68203685.js.map": "/Movie-Personality-Test/static/js/main.68203685.js.map",
+    "787.28cb0dcd.chunk.js.map": "/Movie-Personality-Test/static/js/787.28cb0dcd.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.081a0563.css",
-    "static/js/main.a428bd46.js"
+    "static/js/main.68203685.js"
   ]
 }
