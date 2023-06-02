@@ -1,0 +1,65 @@
+.movie-recommendations-container {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  
+  .movie-card {
+    width: 250px;
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+    cursor: pointer; 
+  }
+  
+  .movie-card:hover {
+    transform: scale(1.04);
+  }
+  
+  .movie-card h3 {
+    margin-top: 0;
+    font-size: 18px;
+  }
+  
+  .movie-card h4 {
+    margin-top: auto;
+    margin-bottom: 10px;
+  }
+  
+  .recommendations-title {
+    text-align: center;
+    font-size: 36px;
+    font-weight: bold;
+    margin-top: 40px;
+    margin-bottom: 30px;
+    color: #333;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+  
+  .button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .movie-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+  }
+  
