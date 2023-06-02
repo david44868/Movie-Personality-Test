@@ -1,28 +1,29 @@
-import React, { useState } from 'react'
+import React, { useState } from "react";
+import PersonalityTestResults from "./PersonalityTestResults";
 
 const PersonalityTest = ({ onSubmit }) => {
   const questions = [
     {
-      question: 'How comfortable are you with taking risks in life?',
+      question: "How comfortable are you with taking risks in life?",
       options: [
         {
-          value: 'risk-taker',
-          label: 'I love taking risks and embracing new challenges.',
+          value: "risk-taking",
+          label: "I love taking risks and embracing new challenges.",
         },
         {
-          value: 'cautious',
-          label: 'I prefer playing it safe and being cautious.',
+          value: "cautious",
+          label: "I prefer playing it safe and being cautious.",
         },
-        { value: 'balanced', label: 'Both, in a balanced way.' },
+        { value: "balanced", label: "Both, in a balanced way." },
       ],
     },
     {
       question:
-        'Do you find solace in nature or feel more connected to the advancements of technology?',
+        "Do you find solace in nature or feel more connected to the advancements of technology?",
       options: [
-        { value: 'nature', label: 'Nature' },
-        { value: 'technology', label: 'Technology' },
-        { value: 'balanced', label: 'Both, in a balanced way.' },
+        { value: "nature", label: "Nature" },
+        { value: "technology", label: "Technology" },
+        { value: "both nature and technology", label: "Both, in a balanced way." },
       ],
     },
     {
@@ -30,16 +31,16 @@ const PersonalityTest = ({ onSubmit }) => {
         'When it comes to adventurous activities, do you prefer engaging in them with a group of people or by yourself?',
       options: [
         {
-          value: 'group',
+          value: 'extrovert',
           label:
             'I love the thrill of group adventures and enjoy the company of others.',
         },
         {
-          value: 'solo',
+          value: 'introvert',
           label:
             'I prefer solo adventures where I can immerse myself in the experience and reflect.',
         },
-        { value: 'either', label: 'Either one is fine.' },
+        { value: 'ambivert', label: 'Either one is fine.' },
       ],
     },
     {
@@ -71,7 +72,7 @@ const PersonalityTest = ({ onSubmit }) => {
       ],
     },
     {
-      question: 'Humor: Which houseplant are you?',
+      question: 'Which houseplant are you?',
       options: [
         { value: 'family', label: 'Golden Pothos' },
         { value: 'action', label: 'Monstera' },
@@ -123,46 +124,49 @@ const PersonalityTest = ({ onSubmit }) => {
       options: [
         { value: 'fantasy', label: 'A whimsical and ever-expanding library with books that come to life.' },
         { value: 'horror', label: 'A dark and mysterious labyrinth with hidden treasures and menacing creatures.' },
-        { value: 'fantasy', label: 'A serene and tranquil garden with exotic plants and talking animals.' },
+        { value: 'family', label: 'A serene and tranquil garden with exotic plants and talking animals.' },
       ],
     },
-  ]
+  ];
 
-  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0)
-  const [responses, setResponses] = useState(Array(questions.length).fill(''))
-  const [completedTest, setCompletedTest] = useState(false)
-  const [recommendations, setRecommendations] = useState([])
-  
+  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
+  const [responses, setResponses] = useState(Array(questions.length).fill(""));
+  const [completedTest, setCompletedTest] = useState(false);
+  const [loading, setLoading] = useState(false);
+
   const handleResponse = (question, answer) => {
     setResponses((prevResponses) => {
-      const newResponses = [...prevResponses]
-      newResponses[question] = answer
-      return newResponses
-    })
-
+      const newResponses = [...prevResponses];
+      newResponses[question] = answer;
+      console.log("newResponses", newResponses)
+      return newResponses;
+    });
 
     setTimeout(() => {
       if (currentQuestionIndex < questions.length - 1) {
         setCurrentQuestionIndex(currentQuestionIndex + 1);
       } else {
         setCompletedTest(true);
-        onSubmit();
+        setLoading(true);
+        // setTimeout(() => {
+        //   setLoading(false);
+        // }, 1500);
       }
     }, 350); // delay
-  }
+  };
 
   return (
-    <div className="bg-gradient-to-r from-teal-400 via-blue-500 to-purple-600 py-8 px-4 rounded-lg shadow-xl">
-
-      {currentQuestionIndex < questions.length ? (
-        <div className="max-w-lg mx-auto">
+    <div className="bg-gradient-to-r from-teal-400 via-blue-500 to-purple-600 py-8 px-4 rounded-lg shadow-xl m-10">
+      {!completedTest ? (
+        <div className="max-w-lg mx-auto p-5">
           <h3 className="text-2xl font-bold mb-6 text-white">
             {questions[currentQuestionIndex].question}
           </h3>
           {questions[currentQuestionIndex].options.map((option) => (
             <label
               key={option.value}
-              className="block py-2 px-4 rounded-md bg-white text-lg text-gray-800 mb-2 cursor-pointer hover:bg-gray-200">
+              className="block py-2 px-4 rounded-md bg-white text-lg text-gray-800 mb-2 cursor-pointer hover:bg-gray-200"
+            >
               <input
                 type="radio"
                 name={`question-${currentQuestionIndex}`}
@@ -177,14 +181,18 @@ const PersonalityTest = ({ onSubmit }) => {
             </label>
           ))}
         </div>
-      ) : (
-        <p className="text-2xl font-bold text-white">
-          Test completed. Submitting your responses...
-        </p>
+      ) : 
+      // loading ? (
+      //   <p className="text-2xl font-bold text-white">
+      //     Test completed. Submitting your responses...
+      //   </p>
+      // ) : 
+      (
+        <PersonalityTestResults responses={responses} onSubmit={onSubmit}/>
       )}
       {/* Render movie recommendations */}
     </div>
-  )
-}
+  );
+};
 
-export default PersonalityTest
+export default PersonalityTest;
