@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import PersonalityTestResults from "./PersonalityTestResults";
+import { motion } from "framer-motion";
 
 const PersonalityTest = ({ onSubmit }) => {
   const questions = [
@@ -28,45 +29,45 @@ const PersonalityTest = ({ onSubmit }) => {
     },
     {
       question:
-        'When it comes to adventurous activities, do you prefer engaging in them with a group of people or by yourself?',
+        "When it comes to adventurous activities, do you prefer engaging in them with a group of people or by yourself?",
       options: [
         {
           value: 'extrovert',
           label:
-            'I love the thrill of group adventures and enjoy the company of others.',
+            "I love the thrill of group adventures and enjoy the company of others.",
         },
         {
           value: 'introvert',
           label:
-            'I prefer solo adventures where I can immerse myself in the experience and reflect.',
+            "I prefer solo adventures where I can immerse myself in the experience and reflect.",
         },
         { value: 'ambivert', label: 'Either one is fine.' },
       ],
     },
     {
-      question: 'Which of these is the most interesting to you?',
+      question: "Which of these is the most interesting to you?",
       options: [
-        { value: 'family', label: 'Spending time with family' },
-        { value: 'adventure', label: 'Finding new things to do' },
-        { value: 'friends', label: 'Creating new relationships' },
+        { value: "family", label: "Spending time with family" },
+        { value: "adventure", label: "Finding new things to do" },
+        { value: "friends", label: "Creating new relationships" },
       ],
     },
     {
       question:
-        'Which celebrity would you want to be stranded on a desert island with?',
+        "Which celebrity would you want to be stranded on a desert island with?",
       options: [
-        { value: 'action', label: 'Jason Statham' },
-        { value: 'comedy', label: 'Tom Hanks' },
-        { value: 'family', label: 'Robin Williams' },
+        { value: "action", label: "Jason Statham" },
+        { value: "comedy", label: "Tom Hanks" },
+        { value: "family", label: "Robin Williams" },
       ],
     },
     {
-      question: 'Are you a bike person, or a porch person?',
+      question: "Are you a bike person, or a porch person?",
       options: [
-        { value: 'action', label: 'Bikes all the way' },
-        { value: 'comedy', label: "Chillin' on the porch" },
+        { value: "action", label: "Bikes all the way" },
+        { value: "comedy", label: "Chillin' on the porch" },
         {
-          value: 'friends',
+          value: "friends",
           label: "Depends on what everyone else is doin' that day!",
         },
       ],
@@ -74,13 +75,13 @@ const PersonalityTest = ({ onSubmit }) => {
     {
       question: 'Which houseplant are you?',
       options: [
-        { value: 'family', label: 'Golden Pothos' },
-        { value: 'action', label: 'Monstera' },
-        { value: 'drama', label: 'Fiddle Leaf' },
+        { value: "family", label: "Golden Pothos" },
+        { value: "action", label: "Monstera" },
+        { value: "drama", label: "Fiddle Leaf" },
       ],
     },
     {
-      question: 'If you had to pick a city to live in, where would it be?',
+      question: "If you had to pick a city to live in, where would it be?",
       options: [
         { value: 'action', label: 'New York City' },
         { value: 'romance', label: 'San Diego' },
