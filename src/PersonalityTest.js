@@ -148,6 +148,15 @@ const PersonalityTest = ({ onSubmit }) => {
     "romance": 10749,
     "sci-fi": 878,
     "thriller": 53,
+    "risk-taking": 53,
+    "cautious": 9648,
+    "balanced": 12,
+    "nature": 14,
+    "technology": 28,
+    "both nature and technology": 12,
+    "extrovert": 28,
+    "introvert": 14,
+    "ambivert": 12,
   };
   
 
